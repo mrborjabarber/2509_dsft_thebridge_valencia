@@ -1,7 +1,7 @@
 # Bootcamp - Data Science - Septiembre 2025 - The Bridge Valencia
 
 
-![The Bridge](./1-Fundamentals/Python/img/TheBridge_logo.png)
+![The Bridge](./img/logo.png)
 
 ----------
 

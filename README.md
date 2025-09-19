@@ -13,6 +13,8 @@
 
 "git clone https://github.com/mrborjabarber/2509_dsft_thebridge_valencia"
 
+---------
+
 - https://developers.google.com/machine-learning/glossary
 
 

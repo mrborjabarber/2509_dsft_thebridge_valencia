@@ -11,7 +11,7 @@
 **Repositorio:** [GitHub - 2509_dsft_thebridge_valencia](https://github.com/mrborjabarber/2509_dsft_thebridge_valencia)  
 
  
- **Clonación**  
+ **git clone**  
 `git clone https://github.com/mrborjabarber/2509_dsft_thebridge_valencia`
 
 ---
@@ -27,4 +27,4 @@
 
 ##  Lead Instructor  
 **Borja Barber**  
-✉️ borja.barbers@thebridgeschool.es  
+✉️ borja.barber@thebridgeschool.es  

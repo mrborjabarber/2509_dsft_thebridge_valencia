@@ -17,7 +17,7 @@
 ---
 
 ## Recursos útiles  
-- [Glosario de Machine Learning (Google)](https://developers.google.com/machine-learning/glossary)  
+[Glosario de Machine Learning (Google)](https://developers.google.com/machine-learning/glossary)  
 
 ✨ *Recuerda:* existen muchas **cheatsheets** disponibles. Escoge las que más te ayuden.  
 

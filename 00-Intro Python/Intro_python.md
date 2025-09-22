@@ -2,12 +2,14 @@
 
 ## Tabla de contenidos
 
-1. [¿Qué es un lenguaje de programación?](#seccion1)
-2. [¿Por qué Python?](#seccion2)
-3. [Ventajas de Python en ciencia de datos](#seccion3)
-4. [¿Qué es una terminal y cómo se usa?](#seccion4)
-5. [Escribir y ejecutar código](#seccion5)
-6. [Recursos adicionales y referencias](#seccion6)
+- [Introducción a Python para principiantes](#introducción-a-python-para-principiantes)
+  - [Tabla de contenidos](#tabla-de-contenidos)
+  - [1. ¿Qué es un lenguaje de programación?](#1-qué-es-un-lenguaje-de-programación)
+  - [2. ¿Por qué Python?](#2-por-qué-python)
+  - [3. Ventajas de Python en ciencia de datos](#3-ventajas-de-python-en-ciencia-de-datos)
+  - [4. ¿Qué es una terminal y cómo se usa?](#4-qué-es-una-terminal-y-cómo-se-usa)
+  - [5. Escribir y ejecutar código](#5-escribir-y-ejecutar-código)
+  - [6. Recursos adicionales y referencias](#6-recursos-adicionales-y-referencias)
 
 <a name="seccion1"></a>
 ## 1. ¿Qué es un lenguaje de programación?
@@ -94,4 +96,4 @@ Esto imprimirá "Hola, mundo!" en la terminal, igual que antes.
 - Guía estilo Python : https://peps.python.org/pep-0008/
 
 
-Felicidades, has llegado al final de esta introducción a Python! Recuerda que la mejor manera de aprender a programar es practicando, así que no dudes en experimentar y probar cosas nuevas con lo que has aprendido. ¡Buena suerte en tu viaje de aprendizaje!
+Felicidades, has llegado al final de esta introducción a Python! Recuerda que la mejor manera de aprender a programar es practicando, así que no dudes en experimentar y probar cosas nuevas con lo que has aprendido. ¡Buena suerte en tu viaje de aprendizaje! bootcamp valencia 

@@ -1,0 +1,9 @@
+id_producto,nombre,descripcion,precio,stock,categoria
+1,Laptop HP Pavilion,"Portátil 15.6 pulgadas, Intel i5, 8GB RAM",699.99,15,Informática
+2,Mouse Logitech MX,Mouse inalámbrico ergonómico,79.99,45,Informática
+3,Teclado Mecánico RGB,Teclado gaming con iluminación RGB,129.99,35,Informática
+4,"Monitor Samsung 27""",Monitor Full HD IPS 27 pulgadas,249.99,19,Informática
+5,Auriculares Sony WH-1000XM4,Auriculares con cancelación de ruido,299.99,25,Audio
+6,Webcam Logitech C920,Webcam Full HD 1080p,89.99,40,Informática
+7,SSD Samsung 1TB,Disco duro sólido 1TB NVMe,119.99,35,Almacenamiento
+8,Cable HDMI 2m,Cable HDMI 2.0 alta velocidad,10.392000000000001,100,Accesorios

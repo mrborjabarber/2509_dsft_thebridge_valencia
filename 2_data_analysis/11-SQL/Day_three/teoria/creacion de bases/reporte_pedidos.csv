@@ -1,0 +1,5 @@
+id_pedido,cliente,fecha_pedido,estado,total
+1,Juan Pérez,2024-05-15,Completado,779.98
+2,María García,2024-05-20,En tránsito,312.98
+3,Carlos Rodríguez,2024-05-22,En tránsito,405.96
+4,Ana Martínez,2025-10-29 10:04:20,Pendiente,209.98

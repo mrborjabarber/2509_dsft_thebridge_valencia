@@ -1,0 +1,16 @@
+# Librerías necesarias para el tutorial PostgreSQL
+
+# Adaptador de PostgreSQL para Python
+psycopg2-binary==2.9.9
+
+# Para cargar variables de entorno desde .env
+python-dotenv==1.0.0
+
+# Para visualizar datos de forma tabular
+pandas==2.1.4
+
+# Para ejecutar el notebook
+jupyter==1.0.0
+
+# Opcional: Para análisis adicional
+numpy==1.26.2

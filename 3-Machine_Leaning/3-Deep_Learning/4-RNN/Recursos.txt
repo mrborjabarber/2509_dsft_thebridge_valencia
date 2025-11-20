@@ -1,0 +1,3 @@
+https://distill.pub/2019/memorization-in-rnns/  (comparación de distintas arquitecturas)
+
+https://keras.io/examples/nlp/lstm_seq2seq/   (traductor usando lstm encoder-decoder)

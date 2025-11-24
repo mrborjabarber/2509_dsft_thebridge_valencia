@@ -1,0 +1,6 @@
+Mecanismos de atención
+
+https://lilianweng.github.io/posts/2018-06-24-attention/
+
+
+https://kikaben.com/transformers-encoder-decoder/ (Transformers)

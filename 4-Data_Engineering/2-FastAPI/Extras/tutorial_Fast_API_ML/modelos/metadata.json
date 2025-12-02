@@ -1,0 +1,18 @@
+{
+  "fecha_entrenamiento": "2025-12-02 12:47:46",
+  "metricas": {
+    "mse": 37153426917.50118,
+    "rmse": 192752.2423151056,
+    "mae": 187355.25037363954,
+    "r2": -5.2438437046283415
+  },
+  "arquitectura": {
+    "capas": 3,
+    "parametros_totales": 2433
+  },
+  "datos_entrenamiento": {
+    "n_muestras_train": 800,
+    "n_muestras_test": 200,
+    "n_caracteristicas": 4
+  }
+}

@@ -50,7 +50,7 @@ def pagina_principal():
     <html lang="es">
     <head>
         <meta charset="UTF-8" />
-        <title>Chat con Goku</title>
+        <title> Goku</title>
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -137,7 +137,7 @@ def pagina_principal():
     <body>
 
         <div id="chat-container">
-            <h1>Chat con Goku 🐉</h1>
+            <h1>Goku </h1>
 
             <div id="messages"></div>
 

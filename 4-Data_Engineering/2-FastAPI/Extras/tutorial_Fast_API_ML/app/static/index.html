@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Predicción de Precios de Casas</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 380px;
+            margin: 50px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #357ac9;
+        }
+
+        #resultado {
+            margin-top: 25px;
+            padding: 15px;
+            background: #e9f7ef;
+            border-left: 5px solid #2ecc71;
+            display: none;
+            border-radius: 10px;
+        }
+
+        #error {
+            margin-top: 25px;
+            padding: 15px;
+            background: #fdecea;
+            border-left: 5px solid #e74c3c;
+            display: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Predicción del Precio</h2>
+
+    <label>Tamaño (m²)</label>
+    <input type="number" id="tamano" step="0.1" min="1">
+
+    <label>Habitaciones</label>
+    <input type="number" id="habitaciones" min="1" max="10">
+
+    <label>Baños</label>
+    <input type="number" id="banos" min="1" max="5">
+
+    <label>Antigüedad (años)</label>
+    <input type="number" id="antiguedad" min="0" max="100">
+
+    <button onclick="predecir()">Predecir Precio</button>
+
+    <div id="resultado"></div>
+    <div id="error"></div>
+</div>
+
+<script>
+async function predecir() {
+    document.getElementById("resultado").style.display = "none";
+    document.getElementById("error").style.display = "none";
+
+    const datos = {
+        tamano: parseFloat(document.getElementById("tamano").value),
+        habitaciones: parseInt(document.getElementById("habitaciones").value),
+        banos: parseInt(document.getElementById("banos").value),
+        antiguedad: parseFloat(document.getElementById("antiguedad").value)
+    };
+
+    // Validación básica
+    if (!datos.tamano || !datos.habitaciones || !datos.banos || datos.antiguedad === "") {
+        mostrarError("Por favor completa todos los campos.");
+        return;
+    }
+
+    try {
+        const resp = await fetch("http://localhost:8000/predecir", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(datos)
+        });
+
+        if (!resp.ok) {
+            mostrarError("Error al conectar con la API.");
+            return;
+        }
+
+        const resultado = await resp.json();
+
+        mostrarResultado(`
+            <strong>Precio estimado:</strong> ${resultado.precio_predicho} €<br>
+            <strong>Confianza:</strong> ${resultado.confianza}<br>
+            <small>${resultado.timestamp}</small>
+        `);
+
+    } catch (error) {
+        mostrarError("Error inesperado: " + error);
+    }
+}
+
+function mostrarResultado(html) {
+    const div = document.getElementById("resultado");
+    div.innerHTML = html;
+    div.style.display = "block";
+}
+
+function mostrarError(msg) {
+    const div = document.getElementById("error");
+    div.innerHTML = msg;
+    div.style.display = "block";
+}
+</script>
+
+</body>
+</html>

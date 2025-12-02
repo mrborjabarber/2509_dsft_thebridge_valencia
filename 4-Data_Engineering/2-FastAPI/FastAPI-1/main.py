@@ -1,12 +1,20 @@
 from fastapi import FastAPI
 from enum import Enum # Se importa Enum
 from fastapi import FastAPI, Path
+from fastapi import Query
+from fastapi import Body, FastAPI, HTTPException, Path, Query, Request, status
+
+
 
 app = FastAPI()
 
 class BookType(str, Enum):  # ¡Herencia!
     REGULAR = "regular"
     BESTSELLER = "bestseller"
+    
+class BooksFormat(str, Enum):
+    SHORT = "short"
+    FULL = "full"
 
 @app.get("/")
 async def root():
@@ -35,3 +43,35 @@ async def get_book_ge(id: int = Path(..., ge=1)):
 @app.get("/book-author/{author}")
 async def get_book_author(author: str = Path(..., min_length=3, max_length=10)):
     return {"author": author}
+
+@app.get("/books-by-query")
+async def get_book_by_query(page: int = 1, size: int = 10):
+    return {"page": page, "size": size}
+
+
+@app.get("/books-format")
+async def get_book_format(format: BooksFormat):
+    return {"format": format}
+
+
+@app.get("/books-query")
+async def get_book_query(page: int = Query(1, gt=0), size: int = Query(10, le=100)):
+    return {"page": page, "size": size}
+
+@app.post("/books-body")
+async def create_book(title: str = Body(...), pages: int = Body(...)):
+    return {"title": title, "pages": pages}
+    
+@app.get("/home-request")
+async def get_request_object(request: Request):
+    return {"path": request.url.path}
+
+
+@app.post("/check-id")
+async def check_id(id: str = Body(...), validated_id: str = Body(...)):
+    if id != validated_id:
+        raise HTTPException(
+            status.HTTP_400_BAD_REQUEST,
+            detail="Los id's no coinciden",
+        )
+    return {"message": "Los Id's coinciden."}

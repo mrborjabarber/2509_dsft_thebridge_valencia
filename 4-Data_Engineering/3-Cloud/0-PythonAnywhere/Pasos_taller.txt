@@ -1,0 +1,70 @@
+Flask, Pythonanywhere y webhooks
+
+1 - Desplegar en PythonAnywhere [PARTE I] 
+
+Creamos una cuenta (que esté vacía porque el ejercicio usará mucho de los recursos gratuitos de Pythonanywhere)
+Subimos la app_model_hooks.py, ad_model.pkl, data/Advertising.csv y data/Advertising_new.csv
+En una consola, creamos el entorno virtual:
+	mkvirtualenv --python=/usr/bin/python3.10 my-virtualenv
+	Instalamos scikit-learn, pandas y flask con pip install
+Vamos a Web- configuración manual, Python 3.10, tendremos que cambiar el WSGI y el entorno virtual).
+/home/prueba83/.virtualenvs/my-virtualenv
+
+path to source code: /home/prueba83/app_model_hooks.py
+
+WSGI --> en la parte de flask
+
+import sys
+#
+## The "/home/prueba83" below specifies your home
+## directory -- the rest should be the directory you uploaded your Flask
+## code to underneath the home directory.  So if you just ran
+## "git clone git@github.com/myusername/myproject.git"
+## ...or uploaded files to the directory "myproject", then you should
+## specify "/home/prueba83/myproject"
+path = '/home/prueba83/app_model_hooks.py'
+if path not in sys.path:
+    sys.path.append(path)
+
+from app_model_hooks import app as application  # noqa
+
+ 
+Guardáis, recargáis y probáis las rutas /, /api/v1/predict, /api/v1/retrain
+
+https://prueba83.pythonanywhere.com/
+
+https://prueba83.pythonanywhere.com/api/v1/predict?radio=15&newspaper=60&tv=80
+
+https://prueba83.pythonanywhere.com/api/v1/retrain
+
+
+
+2 - Hacer el linkado con Github [PARTE II]
+
+Hago un repo en GitHub para mi proyecto (myFlaskApp), lo clono en local, añado todos los ficheros (podéis ver mi repo myFlaskApp en mi GitHub), hago push
+
+En una consola de Pythonanywhere, clono el repo myFlaskApp (tiene dentro app_model_hooks.py, ad_model.pkl, data/Advertising.csv y data/Advertising_new.csv)
+
+Se modifica el WSGI para que encuentre app_model_hooks.py
+working directory /home/prueba83/myFlaskApp
+
+Comprobamos que las rutas de /, /api/v1/predict, /api/v1/retrain siguen funcionando bien
+
+3 - Webhook [PARTE III]
+Creo un webhook en GitHub:
+https://docs.github.com/en/webhooks/using-webhooks/creating-webhooks
+
+settings-webhooks-add webhook
+
+Cuando hagamos push queremos que haga una llamada a la ruta del webhook y que envíe un json de payload (no tipo formulario).
+
+Ruta
+@app.route("/webhook", methods=["POST"])
+
+	- Cambiar en local lo que se quiera (se puede cambiar un comentario para ver que funciona)
+	- Actualizar repo remoto (con un commit y un push)
+	- Comprobar que el webhook sale en verde (ver imagen)
+	- Probar la dirección de PythonAnywhere et voilá!!!
+
+
+
